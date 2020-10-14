@@ -1,0 +1,67 @@
+#include <stdio.h>
+#define N 5
+int queue[N];
+int front=-1;
+int rear=-1;
+int i;
+int main()
+{
+    enque(2);
+    enque(3);
+    enque(4);
+    enque(5);
+    enque(6);
+    display();
+    enque(7);
+    deque();
+    display();
+    enque(8);
+    display();
+    return 0;
+}
+
+void enque(int x)
+{
+   if(front==-1 && rear==-1)
+   {
+       front=rear=0;
+       queue[rear]=x;
+   }
+   else if((rear+1)%N==front)
+   {
+       printf("Sorry, queue is full.\n");
+   }
+   else
+   {
+       rear=(rear+1)%N;
+       queue[rear]=x;
+   }
+}
+
+void display()
+{
+    for(i=front;i!=rear;i=(i+1)%N)
+    {
+        printf("%d", queue[i]);
+
+    }
+    printf("%d\n", queue[i]);
+}
+void deque()
+{
+    if(front==-1 && rear==-1)
+    {
+        printf("The queue is already empty.\n");
+    }
+    else if(front==(rear))
+    {
+        printf("%d is the dequed item.\n", queue[rear]);
+        front=-1;
+        rear=-1;
+    }
+    else
+    {
+        front=(front+1)%N;
+    }
+}
+
