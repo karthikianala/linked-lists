@@ -28,11 +28,11 @@ int main() {
    insert(1);
    insert(7);
    insert(2);
-   insert(9);
+   insert(7);
    cout<<"The doubly linked list is: ";
    display();
    return 0;
 }
 
 #OUTPUT
-The doubly linked list is: 9 2 7 1 3
+The doubly linked list is: 7 2 7 1 3
